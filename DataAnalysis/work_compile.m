@@ -1,7 +1,8 @@
 % Organizing the Spatial array data of ladybug-aphid relationship, 2014
 % Wei-Ting Lin
-clear;clc
-% cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
+%
+% laptop, school
+cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
 %%
 %Data=load('data_temp.txt');
 Data=load('DataLA.txt');

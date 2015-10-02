@@ -1,14 +1,18 @@
 % top-down & bottom-up indices from time series
-% Wei-Ting Lin
 % This work_ file, do permutations from real TS, calculated TD,BU, and compute CI 
 clear;clc
- % cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Laptop 
-cd 'C:\Users\Wei-Ting\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Desktop PC
-work_compile
+% pc, home
+cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\DataAnalysis'
+
+load TDBU_expData
+addpath('C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\SharedAnalysis')
+%% laptop, school
+cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
+
+load TDBU_expData
+addpath('C:\Users\ASUS\Dropbox\PhD_projects\TDBU\SharedAnalysis')
 %%
-sh=10000; % time of permutation
+sh=100; % time of permutation; 'sh' for shuffleing
          
 TDsh=zeros(sh,4);
 BUsh=zeros(sh,4);
@@ -18,45 +22,39 @@ for t=1:sh
     % create permutated data
     sh_data_A = line_shuffler(aphid,1);
     sh_data_L = line_shuffler(ladybug,1);
-    output = TDBU_scale(sh_data_A,sh_data_L,day);
+    output = TDBU_scale(sh_data_A,sh_data_L,dayID);
     TDsh(t,:) = output(1,:); 
     BUsh(t,:) = output(2,:);
 end
 toc   % 857s for sh=10,000
 save temp TDsh BUsh
+%% For the log-based result, use [work_CI_TDBU_ln.m]
+
 %%  get CI from permutation results
 load temp 
-ci_TD = bootstrap_ci(TDsh,0.05,2);
-ci_BU = bootstrap_ci(BUsh,0.05,2);
+ci_TD = quantile(TDsh,[0.025 0.975],1); % get 95%, 2-tail confidence interval for each column in TDsh
+ci_BU = quantile(BUsh,[0.025 0.975],1);
 TD_ = median(TDsh);
 BU_ = median(BUsh);
-   real = TDBU_scale(aphid,ladybug,day);
+   real = TDBU_scale(aphid,ladybug,dayID);
 TD = real(1,:);
 BU = real(2,:);   
 clear array D Data S
-%%  
-Nt=4
+%% Making figure (using myplot_CI)
 figure
 subplot(2,1,1)
-    box_lim = ci_TD;
-    box_mid = TD_;
-    points = TD;
-
-    tx_title = ('Top-Down Effect');
-    tx_y = ('R');
-
+        mytexts=[];
+        mytexts.title ='Top-down effects';
+        mytexts.ylabel = 'R';
 %%%%%%%%%%%%%%
-script_plot_ci_style2
+myplot_CI(TD,ci_TD,TD_,4,mytexts)
 %%%%%%%%%%%%%%
- 
 subplot(2,1,2)
-   box_lim = ci_BU;
-    box_mid = BU_;
-    points = BU;
-    tx_title = ('Bottom-Up Effect');
-    tx_y = ('R'); 
+        mytexts=[];
+        mytexts.title ='Bottom-Up effects';
+        mytexts.ylabel = 'R';
+        mytexts.xlabel = 'Spatial Scale (# of plant)';
+        mytexts.xmark = {'1','3','9','27'};
 %%%%%%%%%%%%%%
-script_plot_ci_style2
+myplot_CI(BU,ci_BU,BU_,4,mytexts)
 %%%%%%%%%%%%%%
- text(2.5,-0.09,'Spatial Scale (# of plant)','HorizontalAlignment','center','FontSize',13)
- text([1 2 3 4],repmat(-0.06,1,4),{1,3,9,27},'FontSize',13)

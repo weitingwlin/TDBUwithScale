@@ -2,8 +2,9 @@
 % Wei-Ting Lin
 % This work_ file makes compiled original data into two series of R calues, for TD and BU effect at each of 4 spatial scales 
 clear;clc
-cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-work_compile
+% laptop, school
+cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
+load TDBU_expData
 %%
 % prepare data sheets 
 ladybug_3=zeros(27,D);
