@@ -1,8 +1,8 @@
 MODEL : with B,D of P? = 1 
 
-NOTE : 28-Sep-2015
+NOTE : 01-Oct-2015
 
-test in PC 
+warming up 
 
 
  * Parameters:

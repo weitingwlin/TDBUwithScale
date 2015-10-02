@@ -11,7 +11,7 @@ clear;clc
 % PC
 cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\modeling'
 % laptop
-cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\modeling'
+ cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\modeling'
 load D_mat2
 % XY is the coordinate of the location of 81 plants
 global np gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP
@@ -36,8 +36,8 @@ dH = 0.05;
 dHz = 0;
 dP = 0.3;
 dPz = 0.3;
-sH = 1; % body size
-sP = 20;%sP = 1;
+sH = 1; % body size ~mg
+sP = 20;% body size 20*sH is realistic 
 H_thH = 100;
 
 H_thP = 15;
@@ -101,7 +101,7 @@ end
 % 
 filename = [savename,'.txt']
 fileID = fopen(filename,'w+t'); % a for append; w for write and replace exist content
-
+fclose(fileID); 
 %note='example';
  script_simulationData
  
