@@ -1,14 +1,16 @@
 % top-down & bottom-up indices from time series
-% Wei-Ting Lin
 % This work_ file, do permutations from real TS, calculated TD,BU, and compute CI 
 clear;clc
-  cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Laptop 
-%cd 'C:\Users\Wei-Ting\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Desktop PC
+%% pc, home
+cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\DataAnalysis'
 
-      work_compile
-script_mycolorplate
+load TDBU_expData
+addpath('C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\SharedAnalysis')
+%% laptop, school
+cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
+
+load TDBU_expData
+addpath('C:\Users\ASUS\Dropbox\PhD_projects\TDBU\SharedAnalysis')
 %%
 te = 1; %temporal data point
 ti = 1;

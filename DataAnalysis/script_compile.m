@@ -37,4 +37,4 @@ for L1 = 1:3
     end
 end
 %% Save Data
-save TDBU_expData dayID aphid ladybug larva spider otherlb
+save TDBU_expData dayID aphid ladybug larva spider otherlb D

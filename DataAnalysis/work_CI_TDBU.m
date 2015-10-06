@@ -1,7 +1,7 @@
 % top-down & bottom-up indices from time series
 % This work_ file, do permutations from real TS, calculated TD,BU, and compute CI 
 clear;clc
-% pc, home
+%% pc, home
 cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\DataAnalysis'
 
 load TDBU_expData

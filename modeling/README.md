@@ -2,13 +2,12 @@ The file in this repo require my matlab utility files.
 
 https://github.com/wildwolflin/utilityMatlab.git
 
----------------------------------------------------------------------------------------------------------------------------------
+------------------
 * run_iva_6.m : 
-	working file. set parameters, run simulation, save result and write a document.
-	Dependent: iva_disper_6.m, iva_discrt_5.m, script_simulationData.m,D_mat2.mat 
+  working file. set parameters, run simulation, save result and write a document. Dependent: iva_disper_6.m, iva_discrt_5.m, script_simulationData.m,D_mat2.mat 
 
 * iva_disper_6.m : 
-	function: run dispersal 
+  function: run dispersal 
 
 * iva_dscrt_6.m : 
 	the main function for local demographic dynamics

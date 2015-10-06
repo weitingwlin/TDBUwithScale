@@ -35,3 +35,8 @@
 * ant: number of ant (species not identified) found on the plant
 
 * otherLadybug: number of other species of ladybug (species not identified) found on the plant
+
+## miscellaneous
+
+* TDBU_experiment_google_earth.png : 
+  a google earth screen shot for the experiment setup.
