@@ -1,4 +1,7 @@
 % Include multiple dispersal event in one time step (i.e. day)
+%
+% update 2015/10/13: dispersal rate devide by number of events
+% update 2015/10/14: correct error on predator dispersal rate function
 
 function xt3 = iva_disper_6(xt2, event)
 % [event]       : the number of dispersal event per simulation time step
@@ -18,7 +21,7 @@ global H_thH H_thP dH dP dPz dHz np DispH DispP
 %%%%%%%%%%%%%%%%%%%%%%%%%%  Herbivore   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 s=1; % herbivore 
         for p = 1:np % each patch
-            D_Real = (dH * (Xhtn(p,s) >= H_thH) ) + dHz; % realized dispersal rate for herbivore
+            D_Real = ((dH * (Xhtn(p,s) >= H_thH) ) + dHz)/event; % realized dispersal rate for herbivore
         % Disperssal dicision: made for each individual
             Xdn = binornd(Xhtn(p,s),D_Real); % disperser in number
              if Xdn>0
@@ -36,7 +39,7 @@ s=1; % herbivore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%  Predator   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 s=2; % Predator 
         for p = 1:np % each patch
-            D_Real = (dP * (Xhtn(p,s) >= H_thP) ) + dPz; % realized dispersal rate for herbivore
+            D_Real = ((dP * (Xhtn(p,s) <= H_thP) ) + dPz)/event; % realized dispersal rate for herbivore
         % Disperssal dicision: made for each individual
             Xdn = binornd(Xhtn(p,s),D_Real); % disperser in number
              if Xdn>0

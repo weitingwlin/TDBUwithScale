@@ -1,3 +1,5 @@
+% Syntax:
+%           bootstrapTDBU = TDBU_bootstrap(dataA, dataL, Day, itt, replacement)
 function bootstrapTDBU = TDBU_bootstrap(dataA, dataL, Day, itt, replacement)
 % TDBU_bootstrap.m : function, simulate null model by shuffling the plant ID (location) of data, calculate the confidance interval and mediam.  
 % default is without replacement 
@@ -6,6 +8,10 @@ if (nargin <5),  replacement = false;  end
 if isa(replacement,'double')==1
     replacement=logical(replacement);
 end
+
+%%% Prepare sheet
+TDsh=zeros(itt,4);
+BUsh=zeros(itt,4);
 
 %%% Do simulation
 

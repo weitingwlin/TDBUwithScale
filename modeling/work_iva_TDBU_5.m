@@ -4,11 +4,9 @@
 % Update 2015/09/23: move working directory to dropbox
 clear; clc
 % laptop
-% cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\C360FDCB-6209-2553-BFA1-FE0A915B2A7F'
-% pc
 cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\modeling'
 
-load sim_TDBU_5_withBDofP
+ load .\Data\sim_TDBU_test
 % load simulated data simulated by [run_iva_5.m]
 % sim_A :the simulated data for aphids
 % sim_L : 

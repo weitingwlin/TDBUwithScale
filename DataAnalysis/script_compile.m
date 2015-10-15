@@ -20,6 +20,7 @@ dayID= unique(Data(:, strcmp(Names,'day'))); % The days observations were made. 
  spider = zeros(81,D);
  larva = zeros(81,D);
  otherlb = zeros(81,D);
+ egg = zeros(81,D); 
 %% Writting plant X day data matrix for each species/taxon
 for L1 = 1:3
     for L2 = 1:3
@@ -32,9 +33,10 @@ for L1 = 1:3
                 spider(temp2,:) = Data(temp,11)';
                 larva(temp2,:) = Data(temp,10)';
                 otherlb(temp2,:) = Data(temp,13)';
+                egg(temp2,:) = Data(temp,14);
             end
         end
     end
 end
 %% Save Data
-save TDBU_expData dayID aphid ladybug larva spider otherlb D
+save TDBU_expData dayID aphid ladybug larva spider otherlb egg D

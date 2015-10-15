@@ -11,3 +11,4 @@ larva
 spider
 ant
 otherLadybug
+egg

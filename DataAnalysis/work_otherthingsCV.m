@@ -1,16 +1,13 @@
-% Calculate CV for the ladybug aphid data across scales
-% Wei-Ting Lin 2015/4/14
-% This work_ file, calculate coefficient of variation (CV) for each set of plants at each scales
-% and make plot
+% Scripts to produce supplement figures: 
+% example TS, example 'scaling up', effect of spider, effect of larva and other species
+
 clear;clc
-  cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Laptop 
-%cd 'C:\Users\Wei-Ting\Desktop\Weiting Brain_brain\Files\CFC26219-6EB2-83FC-A81F-64377771BF19'
-      % Desktop PC
-
-      work_compile
-script_mycolorplate
-
+%% pc, home
+cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\DataAnalysis'
+load TDBU_expData
+%% laptop, school
+cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
+load TDBU_expData
 %% create TS for 3-,9-,27-plant scales
 data_L = ladybug;
 data_A = aphid;
@@ -60,7 +57,7 @@ myplot(2.2, CV_L_3,'S',2);
 myplot(3.2, CV_L_9,'S',2);
 myplot(4.2, CV_L_27,'S',2);
 
-axis([0.3 4.5 0 6])
+axis([0.5 4.5 0 7])
 
 title('CV across scales')
 legend('CV_A_p_h_i_d', 'CV_L_a_d_y_b_u_g','mean of CV_A_p_h_i_d ','mean of CV_L_a_d_y_b_u_g')

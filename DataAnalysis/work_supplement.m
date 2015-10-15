@@ -11,6 +11,26 @@ cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
 load TDBU_expData
 addpath('C:\Users\ASUS\Dropbox\PhD_projects\TDBU\SharedAnalysis')
 
+%% overall (81 plant) temporal trend
+subplot(6,1,2:5) 
+[Hax,H1,H2]=plotyy(dayID, sum(aphid), dayID, sum(ladybug) ); hold on
+    set(H1,'Linestyle','o','color',mycolor(3),'Markerfacecolor',mycolor(3))
+    set(H2,'Linestyle','o','color',mycolor(2),'Markerfacecolor',mycolor(2))
+    set(Hax(1),'ycolor',mycolor(3), 'linewidth',2)
+    set(Hax(2),'ycolor',mycolor(2),'linewidth',2)
+    set(Hax,'FontSize',14)
+    ylabel(Hax(1),'Aphids','fontsize',16)
+    ylabel(Hax(2),'Ladybug','fontsize',16)
+    xlabel('Time (Day)','fontsize',16)
+    title('Overall (81 plant) population dynamics','fontsize',16)
+
+    gap = setdiff(1:max(dayID),dayID);
+    realgap = gap([2, diff(gap)]~=1); % "2" is the spaceholder for the first element
+    for j=1:length(realgap)
+        myplot([realgap(j) realgap(j)],ylim,'L', 7)
+    end 
+    
+    
 %% example for some TS data
 figure
     Xdata = aphid(19:21,:);
@@ -100,3 +120,41 @@ subplot(2,1,2)
         axis([0 5 -0.1 0.2])
         set(gca,'Xticklabel',{[],'1' ,'3' ,'9' ,'27',[]})
         xlabel('Spatial scale','fontsize',14)
+%% Eggs and Hatching
+[r,c] = find(egg == 1);
+% r is the patches, c is the dayID that eggs were found
+PwithEgg = unique(r);
+clutch = 0; % initialize
+for i = 1:length(PwithEgg)
+      daysEgg = c(r == PwithEgg(i));   
+       clutch = clutch + 1 + sum(diff(daysEgg)>2);     
+       % if eggs were found in less than 3 days at the same plant, consider they as the same clutch
+end
+disp(clutch) % number of clutch of egg found during the experiment
+%% Hatches
+% If more than one larva found within 3 day after a clutch of egg was found
+[r2,c2] = find(larva >1);
+% r is the patches, c is the dayID that >1 larva were found
+PwithLarva = unique(r2);
+hatch = 0;% to initialize
+for i = 1:length(PwithLarva)
+      daysLarva = sort(c2(r2 == PwithLarva(i)));   
+      newLarva = daysLarva(diff( [-2 daysLarva'])>2); % -2 is an temporary initial point, so the first day would be included as a new day 
+      for j=1:length(newLarva)
+              if sum(egg(PwithLarva(i),  newLarva(j)-3 : newLarva(j)-1) ) > 0
+                 hatch = hatch + 1 ;     
+                % if clutch found within 3 days before the new larva found, sure it is new hatch
+              end
+      end
+end
+disp(hatch) % number of clutch of egg found during the experiment
+
+%% Some basic data to compare with model
+% mean occupency rate
+A = mean(sum(aphid>0));
+B = mean(sum(ladybug>0));
+C = mean(mean(aphid(aphid>0)));
+
+disp(['occupency of aphids ', num2str(A)])
+disp(['occupency of ladybugs ', num2str(B)])
+disp(['mean population of aphids ', num2str(C)])

@@ -1,21 +1,21 @@
-MODEL : with B,D of P? = 1 
+MODEL : with B,D of P? = 0 
 
-NOTE : 01-Oct-2015
+NOTE : 14-Oct-2015
 
-warming up 
+ 
 
 
  * Parameters:
 
 	DisperEvent = 2 
 
-	gH = 0.25 	 eP = 1 	 H_0 = 20 	 aP = 0.2 	 KH = 200
+	gH = 0.2 	 eP = 1.5 	 H_0 = 30 	 aP = 0.25 	 KH = 150
 
 	mH = 0.1 	 mP = 0.1 	 stoc_mH = 2 	 stoc_mP = 2
 
-	dH = 0.05 	 dP = 0.3 	 dHz = 0 	 dPz = 0.3
+	dH = 0.05 	 dP = 0.6 	 dHz = 0 	 dPz = 0.3
 
-	H_thH = 100 	 H_thP = 15 	 cH = 0.01 	 cP = 0.01
+	H_thH = 100 	 H_thP = 10 	 cH = 0.02 	 cP = 0.05
 
 	sH = 1 	 sP = 20 
 
@@ -23,5 +23,5 @@ warming up
 
 	Seed = 123
 	Itteration : 
-		 Random initial : 5 
+		 Random initial : 10 
 		 Simulation time : 60

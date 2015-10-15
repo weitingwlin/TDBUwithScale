@@ -21,16 +21,18 @@ the script that loads in data from ./Data/DataLA.txt and ./Data/ColumnNames.txt,
 * work_CI_TDBU.m : 
 the script that readcompiled data (81 plant x 34 day), simulate null  model,  calculate CI of the TD, BU indices from null model, and make the CI figure. 
 
-* work_CI_TDBU.m : 
+* work_CI_TDBU_ln.m : 
 the script that readcompiled data (81 plant x 34 day), simulate null model,  calculate CI of the TD, BU indices (with log-transformed aphid population) from null model, and make the CI figure. 
 
 * work_supplement.m : 
-The script to produce supplement figures. Including :  example TS, example 'scaling up', effect of spider, effect of larva and other species.
+The script to produce supplement figures. Including :  example TS, overall trend, example 'scaling up', effect of spider, effect of larva and other species, number of egg clutches and newly hatched larva.
 
-* work_robust.m:
+* work_robust.m : 
 The script that do the robust analysis of TDBU empirical data.
 Split the data into two subsets, on each do the analysis as in work_Ci_TDBU.m
-                     
+
+* work_otherthingsCV : 
+The script that calculate coefficient of variation (CV) for ladybug and aphids at each scale, and make the figure.                     
 
 
 
