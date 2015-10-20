@@ -4,11 +4,13 @@
 clear;clc
 % laptop, school
 cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\DataAnalysis'
+% pc, home
+cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\DataAnalysis'
 load TDBU_expData
 %%
 % prepare data sheets 
 ladybug_3=zeros(27,D);
- aphid_3=zeros(27,D);
+ aphid_3=zeros(27,D); 
   ladybug_9=zeros(9,D);
  aphid_9=zeros(9,D);
  ladybug_27=zeros(3,D);

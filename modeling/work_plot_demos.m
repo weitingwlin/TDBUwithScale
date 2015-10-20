@@ -1,8 +1,6 @@
 %% make plot for elements in the model like dispersal kernel, can be used in presentation
-load D_mat2
-cP = 0.05;        % dispersal parameter c for H , small number means long distance travel
-cH = 0.02;       % dispersal parameter c for P
-Dist = Euclidean_D(XY); % X
+
+
 %% plot the dispersal kernal
 figure
 
@@ -28,7 +26,7 @@ end
 legend('H_t_+_1 w/ 1 predator','H_t_+_1 w/o  predator', 'isocline','Stochastic mortalisty' ,'')
 xlabel('H_t')
 ylabel('H_t_+_1')
-%%
+%% cloase up of functional response
 A = [0:20];
 B = A + gH.*A.*(KH - A)./KH - eP.*20*A./(A + H_0) ; % with one predator
 C = A + gH.*A.*(KH - A)./KH ; % without predator
@@ -44,3 +42,18 @@ legend('H_t_+_1 w/ 1 predator','H_t_+_1 w/o  predator', 'isocline','Danger Zone'
 xlabel('H_t')
 ylabel('H_t_+_1')
 title('Close up')
+%% Directed dipersal
+X = [ 0 : 150 ];% the aphid population
+D_RealH =   dH ./ ( 1 + exp(-1 * B * ( X - H_thH) ) + dHz ) ;
+D_RealP =   (dPz + dP) - dPz ./ ( 1 + exp(-1 * B * ( X - H_thP) )  ) ;
+%%
+figure 
+% aphid
+myplot(X,D_RealH,'L',2);hold on
+%ladybug
+myplot(X,D_RealP,'L',3)
+xlabel('H_i_,_t (herbivore population)')
+ylabel('Dispersal rate')
+legend('Aphid','Ladybug')
+
+

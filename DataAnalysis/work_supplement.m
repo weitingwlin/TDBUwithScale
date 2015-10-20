@@ -13,9 +13,9 @@ addpath('C:\Users\ASUS\Dropbox\PhD_projects\TDBU\SharedAnalysis')
 
 %% overall (81 plant) temporal trend
 subplot(6,1,2:5) 
-[Hax,H1,H2]=plotyy(dayID, sum(aphid), dayID, sum(ladybug) ); hold on
-    set(H1,'Linestyle','o','color',mycolor(3),'Markerfacecolor',mycolor(3))
-    set(H2,'Linestyle','o','color',mycolor(2),'Markerfacecolor',mycolor(2))
+[Hax,H1,H2]=plotyy(dayID, sum(aphid), dayID, sum(ladybug),'plot','plot' ); hold on
+    set(H1,'linestyle','none','Marker','o','Color',mycolor(3),'Markerfacecolor',mycolor(3))
+    set(H2,'linestyle','none','Marker','o','color',mycolor(2),'Markerfacecolor',mycolor(2))
     set(Hax(1),'ycolor',mycolor(3), 'linewidth',2)
     set(Hax(2),'ycolor',mycolor(2),'linewidth',2)
     set(Hax,'FontSize',14)
