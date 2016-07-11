@@ -1,6 +1,39 @@
 %% make plot for elements in the model like dispersal kernel, can be used in presentation
+clear;clc
+script_parameters
+%% plot dispersal incidence
+figure
+        distX = 0: 0.5: 80; % example of distance between patches
+        incP = exp((-1) *cP * distX .* ones(size(distX))); % relative incidence
+        incH = exp((-1) *cH * distX .* ones(size(distX))); 
+    myplot(distX, incH, 'L', 2); hold on
+    myplot(distX, incP, 'L', 3);
+        xlabel('Distance between patches')
+        ylabel('Relative settlement rate')
+        legend('Aphid (c_H = 0.1)','Ladybug (c_P = 0.2)' )
+    vline(2);
+    vline(6);
+    vline(18)
+    vline(54)
+%% Directed dipersal
+figure 
+    X = [ 0 : 150 ];% the aphid population
+    D_RealH =    dHz  +  (dH ./ (1 + exp(-1 * B * ( X - H_thH) )) );
+    D_RealP =   (dPz + dP) - dPz ./  ( 1 + exp(-1 * B * ( X - H_thP) )  ) ;
 
 
+% aphid
+myplot(X,D_RealH,'L',2);hold on
+%ladybug
+myplot(X,D_RealP,'L',3)
+% vline(H_thH)
+%hline(dH)
+myplot(X,D_RealH,'L',2);
+xlabel('H_i_,_t (herbivore population)')
+ylabel('Dispersal rate')
+legend('Aphid (Herbivore)','Ladybug (Hredator)')
+
+    
 %% plot the dispersal kernal
 figure
 
@@ -26,7 +59,7 @@ end
 legend('H_t_+_1 w/ 1 predator','H_t_+_1 w/o  predator', 'isocline','Stochastic mortalisty' ,'')
 xlabel('H_t')
 ylabel('H_t_+_1')
-%% cloase up of functional response
+%% close up of functional response
 A = [0:20];
 B = A + gH.*A.*(KH - A)./KH - eP.*20*A./(A + H_0) ; % with one predator
 C = A + gH.*A.*(KH - A)./KH ; % without predator
@@ -42,18 +75,4 @@ legend('H_t_+_1 w/ 1 predator','H_t_+_1 w/o  predator', 'isocline','Danger Zone'
 xlabel('H_t')
 ylabel('H_t_+_1')
 title('Close up')
-%% Directed dipersal
-X = [ 0 : 150 ];% the aphid population
-D_RealH =   dH ./ ( 1 + exp(-1 * B * ( X - H_thH) ) + dHz ) ;
-D_RealP =   (dPz + dP) - dPz ./ ( 1 + exp(-1 * B * ( X - H_thP) )  ) ;
-%%
-figure 
-% aphid
-myplot(X,D_RealH,'L',2);hold on
-%ladybug
-myplot(X,D_RealP,'L',3)
-xlabel('H_i_,_t (herbivore population)')
-ylabel('Dispersal rate')
-legend('Aphid','Ladybug')
-
 

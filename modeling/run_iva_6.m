@@ -8,56 +8,24 @@
 % running with [iva_dscrt_6] and [iva_disper_6]
 % Data can be analysed with [work_iva_TDBU.m]
 clear;clc
-% laptop
-%cd 'C:\Users\ASUS\Desktop\Weiting Brain_brain\Files\C360FDCB-6209-2553-BFA1-FE0A915B2A7F'
-%% PC
-cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\modeling'
-addpath 'C:\Users\Wei-Ting\Dropbox\DataCoding\MATLAB\utility_wtl\Utility_ecology'
- addpath 'C:\Users\Wei-Ting\Dropbox\DataCoding\MATLAB\utility_wtl\Utility_basic'
-%% laptop
- cd 'C:\Users\ASUS\Dropbox\PhD_projects\TDBU\modeling'
- % addpath 'C:\Users\ASUS\Dropbox\DataCoding\MATLAB\utility_wtl\Utility_basic'
- addpath 'C:\Users\ASUS\Dropbox\DataCoding\MATLAB\utility_wtl\Utility_ecology'
+work_setup
 %%
-load D_mat2
-% XY is the coordinate of the location of 81 plants
-global np gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B
-%% Name and note of simulation
- prompt = 'Name this simulation in one (long) word, between quotation marks:  ';
- savename = ['.\Data\sim_TDBU_',input(prompt)];
- prompt = 'Note for this simulation:  ';
-note = input(prompt)
-%% papameter setting
-withBDofP = 1; % whether with local dynamics (Birth and Death) of Predator 
-DisperEvent = 3; % number of dispersal event within a day
-gH = 0.2;  % The intrinsic growth rate of herbivore
-eP = 1.5;     % eP = 30; consumption rate of herbivore by predator
-H_0 = 30;  % H_0 = 10;   half saturate  
-aP = 0.1;  % aP=0.01  assimilation rate
-KH = 200; %200; carrying capacity of H
-mH = 0.1;% 0.1
-mP = 0.05;% 0.1
-stoc_mH = 2;% 2
-stoc_mP = 2;% 2
-dH = 0.05;% 0.05
-dHz = 0.05;% 0 
-dP = 0.6;% 0.3
-dPz = 0.3;%0.3
-sH = 1; % body size ~mg
-sP = 20;% body size 20*sH is realistic 
-H_thH = 100;%100
-H_thP = 15;% 15
-cP = 0.2;        % dispersal parameter c for H , small number means long distance travel
-cH = 0.1;       % dispersal parameter c for P
-% Dispersal matrix
-Dist = squareform(pdist(XY)); % XY cordinates --> distance matrix   
-DispH = disp_incidence (Dist,cH,  ones(size(Dist)));  % Distance matrix --> dispersal matrix
-DispP = disp_incidence (Dist,cP, ones(size(Dist)));
-B = 0.25; 
+script_parameters
 
+%% test robustness
+ %  cP = 0.1
+ %  cP = 0.3 
+ %  eP = 1
+ %  eP = 2
+ %  dPz = 0.2; dP = 0.7
+ %  dPz = 0.4; dP = 0.5
+ %  dPz = 0.2   ; dPz + dP
+ %  dPz = 0.4
+ %  aP = 0.15
+ %  aP = 0.35
 %% Simulation settings
-ittInit =1000; %  itteration of randomly initiated simulations
-ittSim= 100; % iteration (==time or day)
+ittInit =100; %  itteration of randomly initiated simulations
+ittSim= 100; % iteration (==time or day)\\
 np = 81; % number of patch
 
 % prepare datasheet for simulation
@@ -66,7 +34,8 @@ sim_L = zeros(81,1);% dummy
 sim_A = zeros(81,1);
 sim_D = 1;
 seed=123;
-%% Simulation
+%% Simulation\
+tic
 rng(seed); % set seed of simulation
 for r=1:ittInit % randomly initialed simulations
 % Initial value
@@ -97,8 +66,14 @@ sim_L = [sim_L sim_L_temp];
 sim_A = [sim_A sim_A_temp];
 sim_D = [sim_D,D_temp];
 end
+toc
 %%  to visualize result 
 %   edit work_explore_TDBU
+%% Name and note of simulation
+ prompt = 'Name this simulation in one (long) word, between quotation marks:  ';
+ savename = [datapath, 'sim_TDBU_',input(prompt)];
+ prompt = 'Note for this simulation:  ';
+note = input(prompt)
 %% save data
 
  save(savename,  'sim_L',  'sim_A',  'sim_D')

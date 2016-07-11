@@ -1,0 +1,16 @@
+site_code	
+patch_code	
+latitude	 
+longitude	
+length	
+width	
+area	
+hight	
+distance_to_nearest	
+shade_level	
+noon_shade	
+surround_mud	
+surround_borrichia	
+surround_dry	
+surround_grass	
+salinity

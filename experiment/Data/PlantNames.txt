@@ -1,0 +1,13 @@
+PlantID	
+used	
+HeightMay	
+NLeavesMay	
+HeightJuly	
+NLeavesJuly	
+leaveDamage	
+TerminalGall	
+leaveGall	
+position1	
+position2	
+position3	
+position4

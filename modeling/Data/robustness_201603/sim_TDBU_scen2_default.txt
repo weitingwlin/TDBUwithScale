@@ -1,17 +1,17 @@
 MODEL : with B,D of P? = 1 
 
-NOTE : 19-Oct-2015
+NOTE : 20-Apr-2016
 
-almost full with BDofP 
+default simulation for scen2 
 
 
  * Parameters:
 
-	DisperEvent = 3 
+	DisperEvent = 1 
 
-	gH = 0.2 	 eP = 1.5 	 H_0 = 30 	 aP = 0.1 	 KH = 200
+	gH = 0.2 	 eP = 1.5 	 H_0 = 30 	 aP = 0.25 	 KH = 200
 
-	mH = 0.1 	 mP = 0.05 	 stoc_mH = 2 	 stoc_mP = 2
+	mH = 0.1 	 mP = 0.1 	 stoc_mH = 2 	 stoc_mP = 2
 
 	dH = 0.05 	 dP = 0.6 	 dHz = 0.05 	 dPz = 0.3
 
@@ -23,5 +23,5 @@ almost full with BDofP
 
 	Seed = 123
 	Itteration : 
-		 Random initial : 1000 
+		 Random initial : 100 
 		 Simulation time : 100

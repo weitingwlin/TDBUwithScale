@@ -22,16 +22,18 @@ global H_thH H_thP dH dP dPz dHz np DispH DispP B
 %%%%%%%%%%%%%%%%%%%%%%%%%%  Herbivore   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 s=1; % herbivore 
         for p = 1:np % each patch
-                D_Real = (  dH / ( 1 + exp(-1 * B * ( Xhtn(p,s) - H_thH) ) + dHz ) ) /event;
+                D_Real =   (  dHz + (dH / ( 1 + exp( -1 * B * ( Xhtn(p,s) - H_thH ) ) ) ) ) /event;
            % D_Real = ((dH * (Xhtn(p,s) >= H_thH) ) + dHz)/event; % realized dispersal rate for herbivore
         % Disperssal dicision: made for each individual
             Xdn = binornd(Xhtn(p,s),D_Real); % disperser in number
              if Xdn>0
                 Xhtn(p,s) = Xhtn(p,s)-Xdn; % leaving patch
-                    for i=1:Xdn  % each disperser hoover to one patch
-                    W = mylottery(1:np,DispH(:,p));% each emmigrant pick one site to settle
-                    Xhh(W,s,p) = Xhh(W,s,p) + 1; % add one individual to the hovering group
-                    end % end for i
+                W = datasample( 1:np, Xdn, 'Weight', DispP(:,p) );
+                Xhh(:, s, p) = Xhh(:, s, p) + accumarray([W' ; [1:np]'], 1) - ones(np, 1); 
+                %    for i=1:Xdn  % each disperser hoover to one patch
+                %    W = datasample(1:np,2, 'Weight',DispH(:,p));
+                %    Xhh(W,s,p) = Xhh(W,s,p) + 1; % add one individual to the hovering group
+                 %   end % end for i
               end % end if
         end
 
@@ -41,16 +43,21 @@ s=1; % herbivore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%  Predator   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 s=2; % Predator 
         for p = 1:np % each patch
-                 D_Real = (  (dPz + dP) - dPz / ( 1 + exp(-1 * B * ( Xhtn(p,s) - H_thP) )  ) ) /event;
+            D_Real = (  (dP + dPz) - dP / ( 1 + exp(-1 * B * ( Xhtn(p,s) - H_thP) )  ) ) /event;
+              %   D_Real = (  (dPz + dP) - dPz / ( 1 + exp(-1 * B * ( Xhtn(p,s) - H_thP) )  ) ) /event;
+              %    ^^^ 2016/05/11 found this equation is wrong actually
            % D_Real = ((dP * (Xhtn(p,s) <= H_thP) ) + dPz)/event; % realized dispersal rate for herbivore
         % Disperssal dicision: made for each individual
             Xdn = binornd(Xhtn(p,s),D_Real); % disperser in number
              if Xdn>0
                 Xhtn(p,s) = Xhtn(p,s)-Xdn; % leaving patch
-                    for i=1:Xdn  % each disperser hoover to one patch
-                    W = mylottery(1:np,DispP(:,p));% each emmigrant pick one site to settle
-                    Xhh(W,s,p) = Xhh(W,s,p) + 1; % add one individual to the hovering group
-                    end % end for i
+                W = datasample( 1:np, Xdn, 'Weight', DispP(:,p) );
+                Xhh(:, s, p) = Xhh(:, s, p) + accumarray([W' ; [1:np]'], 1) - ones(np, 1); 
+                         % 2016/05/11 switch to non-loof simulation      
+                         %      for i=1:Xdn  % each disperser hoover to one patch                                   
+                         %   W = datasample( 1:np, 1, 'Weight', DispP(:,p) );
+                         %    Xhh(W,s,p) = Xhh(W,s,p) + 1; % add one individual to the hovering group
+                         %     end % end for i
               end % end if
         end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

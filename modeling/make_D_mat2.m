@@ -48,6 +48,9 @@ end
 axis off
 box off
 hold on
+%% Save  XY to CSV
+csvwrite('D_mat2.csv', XY)
+
 %% plot the dispersal kernal
 figure
 
@@ -58,3 +61,12 @@ disp_tempP=disp_incidence(dist_temp,cP);
 plot(0:80,0,'-k')
 plot(dist_temp(1,:),disp_tempH(1,:)*200,'-b','Linewidth',2)
 plot(dist_temp(1,:),disp_tempP(1,:)*200,'-r','Linewidth',2)
+%% 
+global H_thH H_thP dH dP dPz dHz np DispH DispP B
+
+Hsim = 1: 200;
+Hsim2 = 1:100;
+D_RealH =   (  dHz + (dH ./ ( 1 + exp( -1 .* B .* ( Hsim - H_thH ) ) ) ) ) ./event;
+D_RealP = (  (dP + dPz) - dP ./ ( 1 + exp(-1 .* B .* ( Hsim2- H_thP) )  ) ) ./event;
+myplot(Hsim2, D_RealP, 'L'); hold on
+myplot(30, 1/9 + dPz,'S', 1, 5); myplot(10, 4/11+ dPz,'S', 1, 5); 
