@@ -12,8 +12,8 @@ end
  
 % laptop; lab
 if strncmp(strout, 'wlin_pc',5)
-        cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\fieldpattern'
-        addpath 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\dataAnalysis'
+        cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\fieldpattern\With 2014data'
+        addpath 'C:\Users\Wei-Ting\Dropbox\DataCoding\utility_wtl'
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear stt strout

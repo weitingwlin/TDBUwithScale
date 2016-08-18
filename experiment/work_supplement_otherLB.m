@@ -2,7 +2,7 @@ clear;clc
 load TDBU_expData
 %% occurence of spiders
 sum(sum(otherlb, 2))
-sum(sum(ladybug, 2))
+sum(sum(ladybug, 2)) % 'ladybug' here is only  Cycloneda sanguinea
 %% 
 sh=10000; % time of permutation; 'sh' for shuffleing
 %%

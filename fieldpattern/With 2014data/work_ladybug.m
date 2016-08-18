@@ -31,4 +31,16 @@ load ./data/FieldData
     end
 % numInteraction(Amat13, Lmat13, [0, 1], 1);  % a quick check
 
- 
+%%   numeric interaction 2014
+           Amat = NaN( P, 20);
+            Lmat = NaN( P, 20);
+            Lallmat = NaN( P, 20);
+    sample = 1; % first sample
+    for p = 1 : P
+            patch = ind_patch(p,:); % [ site, patch] 
+            temp1 = find(((InsectData(:,1) == patch(1)) + (InsectData(:,2) == patch(2)))==2); % index for this patch
+    Amat(p, 1:length(temp1)) = InsectData(temp1, 8)' ;         
+    Lmat(p, 1:length(temp1)) = InsectData(temp1, 15)' ;         
+    Lallmat(p,1:length(temp1)) =sum( InsectData(temp1, [14 15 16 ])') ;         
+     LLmat(p,1:length(temp1)) =sum( InsectData(temp1, [14 15 16 19])') ;    
+    end

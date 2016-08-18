@@ -1,11 +1,13 @@
 % Tp set up path: open work_setup.m and run
 clear;clc
 %% load data
-load data/ladybugaphid2014
+load ./data2014/FieldData
+script_compile2014_ladybug
+%  work_turnovers2014
 %%  1) ladybugs can strongly suppress aphids in a single patch, 
 % make the figure 
-%figure;
-mysubplot(6,2, [2 4  6], '', 0.8,0.3)
+figure;
+%subplot(6,2, [2 4 6 ])
         dfA = diff(Amat14, 1, 2); % change in Aphid 
         %      dfA(mv_avrg(Amat13) == 0) = NaN; % remove points where 
         % mvL = mv_avrg(Lmat13); % moving average of Ladybug
@@ -17,12 +19,12 @@ mysubplot(6,2, [2 4  6], '', 0.8,0.3)
                 xlabel('Ladybug population (3 taxa)')
                 ylabel('Aphid population change') 
                 title('Top-down effect')
-                text(-0.5, 700, 'e', 'FontSize',18, 'FontWeight', 'bold')
+            %    text(-1, 700, 'e', 'FontSize',16)
         [Bs, R, P] = nanls(mvLL(:) , dfA(:))
 
  %% 2) 
-% figure
- mysubplot(6,2, [8,10,12], '', 0.8,0.3)
+ figure
+ %subplot(6,2, [8,10,12])
         dfLL = diff(LLmat14, 1, 2); % change in all ladybug
         %      dfA(mv_avrg(Amat13) == 0) = NaN; % remove points where 
         mvA = mv_avrg(Amat14); % moving average of Ladybug         
@@ -32,5 +34,5 @@ mysubplot(6,2, [2 4  6], '', 0.8,0.3)
                 xlabel('Aphid population ')
                 ylabel('Ladybug population change')
                    title('Bottom-up effect')
-                   text(-130, 7, 'f', 'FontSize',18, 'FontWeight', 'bold')
+               %    text(-150, 7, 'a', 'FontSize',16)
         [Bs, R, P] = nanls(mvA(:) , dfLL(:))
