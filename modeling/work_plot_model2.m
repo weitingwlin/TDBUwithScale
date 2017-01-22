@@ -20,7 +20,7 @@ myplot_CI((-1) * TDBUsim.real(1,:), (-1) *TDBUsim.ciTD, (-1) *TDBUsim.medTD, 4, 
         mytexts=[];
         mytexts.title ='Bottom-Up effects';
         mytexts.ylabel = 'R_B_U';
-        mytexts.xlabel = 'Spatial Scale (number of plant)';
+        mytexts.xlabel = 'Spatial Scale (number of plants)';
         mytexts.xmark = {'1','3','9','27'};
 %%%%%%%%%%%%%%
 myplot_CI(TDBUsim.real(2,:),TDBUsim.ciBU,TDBUsim.medBU,4,mytexts, mystyle)

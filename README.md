@@ -1,4 +1,4 @@
-# TDBUwithScale
+# Ladybug aphid interaction with Scale
 The code for my PhD project: Scale-dependent predator-prey interaction in experiment and model systems.
 
 Running some functions require tools in [my Matlab utility]

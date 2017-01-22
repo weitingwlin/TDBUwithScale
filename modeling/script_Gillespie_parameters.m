@@ -1,22 +1,21 @@
 %%
 load D_mat2
 % XY is the coordinate of the location of 81 plants
-global np gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B
+global  gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B withBDofP
 
 %% papameter setting
-withBDofP = 0; % whether with local dynamics (Birth and Death) of Predator 
-DisperEvent = 1; % number of dispersal event within a day
+withBDofP = 0;
 gH = 0.2;  % The intrinsic growth rate of herbivore
 eP = 1.5;% 1.5;      consumption rate of herbivore by predator
 H_0 = 30;  % H_0 = 30;   half saturate  
 aP = 0.25;  % aP=0.25  assimilation rate
 KH = 200; %200; carrying capacity of H
-mH = 0.1;% 0.1
+mH = 0.2;% 0.1
 mP = 0.1;% 0.1
-stoc_mH = 2;% 2
+stoc_mH = 5;% 2
 stoc_mP = 2;% 2
-dH = 0.05;% 0.05
-dHz = 0.05;% 0.05 
+dH = 0.01;% 0.05
+dHz = 0.04;% 0.05 
 dP = 0.6;% 0.6
 dPz = 0.3;%0.3
 sH = 1; % body size ~mg

@@ -7,6 +7,6 @@ h3 = myplot(2,1.5, 'S',1.5)
  
  axis([1 5 0 3])
  %%
- legend('CI','median of null model','experimental data')
+ legend('CI','median of null model','experimental or model data')
  %%
   legend('CI','median of null model','model data')

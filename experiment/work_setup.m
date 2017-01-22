@@ -5,10 +5,10 @@
 
 
 %%% set working directory and path
-if strncmp(strout, 'weitingdeMacBook-Air.local',12)
+if strncmp(strout, 'weitingdeAir',12)
     cd '/Users/weitinglin/Dropbox/PhD_projects/TDBU/experiment'
     addpath '/Users/weitinglin/Dropbox/DataCoding/utility_wtl/mfiles'
-    addpath '/Users/weitinglin/Dropbox/PhD_projects/TDBU/SharedAnalysis'
+    addpath '/Users/weitinglin/Dropbox/PhD_projects/TDBU/DataAnalysis'
     datapath = './data/'; 
 end
 
