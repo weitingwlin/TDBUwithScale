@@ -3,7 +3,7 @@
 
 load TDBU_expData
 %%
-sh=2000; % time of permutation; 'sh' for shuffleing
+sh=10000; % time of permutation; 'sh' for shuffleing
 
 %%
 tic

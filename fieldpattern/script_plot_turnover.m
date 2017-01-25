@@ -3,7 +3,7 @@ style = [];
 style.barcolor = mycolor(1);
 style.BarOn = 1;
 texts = [];
-texts.xlabels = {'Aphids','Ladybugs'};
+texts.xlabels = {'Aphids','Ladybeetles'};
 %%
  %figure
  mysubplot(6,2, [1 3 ], '', 0.8, 0.3)

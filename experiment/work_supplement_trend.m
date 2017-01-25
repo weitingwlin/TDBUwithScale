@@ -4,13 +4,13 @@ load TDBU_expData
 %% overall (81 plant) temporal trend
 subplot(6,1,2:5) 
 [Hax,H1,H2] = plotyy(dayID, sum(aphid), dayID, sum(ladybug),'plot','plot' ); hold on
-    set(H1,'linestyle','none','Marker','o','Color',mycolor(1),'Markerfacecolor',mycolor(1))
-    set(H2,'linestyle','none','Marker','^','color',mycolor(1),'Markerfacecolor',mycolor(1))
-    set(Hax(1),'ycolor',mycolor(1), 'linewidth',2)
-    set(Hax(2),'ycolor',mycolor(1),'linewidth',2)
+    set(H1,'linestyle','none','Marker','o','Color',mycolor(3),'Markerfacecolor',mycolor(3))
+    set(H2,'linestyle','none','Marker','^','color',mycolor(2),'Markerfacecolor',mycolor(2))
+    set(Hax(1),'ycolor',mycolor(3), 'linewidth',2)
+    set(Hax(2),'ycolor',mycolor(2),'linewidth',2)
     set(Hax,'FontSize',14)
     ylabel(Hax(1),'Aphids','fontsize',16)
-    ylabel(Hax(2),'Ladybugs','fontsize',16)
+    ylabel(Hax(2),'Ladybeetles','fontsize',16)
     xlabel('Time (Day)','fontsize',16)
     title('Overall (81 plant) population dynamics','fontsize',16)
 

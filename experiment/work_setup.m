@@ -16,6 +16,7 @@ end
 if strncmp(strout, 'wlin_pc',5)
         cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\experiment'
         addpath 'C:\Users\Wei-Ting\Dropbox\DataCoding\utility_wtl\mfiles'
+        addpath 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\dataAnalysis'
 end
 
 

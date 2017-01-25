@@ -1,7 +1,7 @@
 function [t, X] =iva_Gillespie(X0, tlim)
 %% global parameters
-global  gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B withBDofP
-
+% global  gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B withBDofP
+script_Gillespie_parameters
 %% process (per patch)
 v = [];
 v{1} =  [1  0];  % birth of Herbivore

@@ -6,7 +6,7 @@
 %%% set working directory and path
 if strncmp(strout, 'ChrisdeMacBook-Air.local',12)
  %   cd ''
- %   addpath '/Users/weitinglin/Dropbox/DataCoding/utility_wtl/mfiles'
+    addpath '/Users/weitinglin/Dropbox/DataCoding/utility_wtl/mfiles'
 end
 % PC; home
  
@@ -14,6 +14,7 @@ end
 if strncmp(strout, 'wlin_pc',5)
         cd 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\fieldpattern'
         addpath 'C:\Users\Wei-Ting\Dropbox\PhD_projects\TDBU\dataAnalysis'
+         addpath 'C:\Users\Wei-Ting\Dropbox\DataCoding\utility_wtl\mfiles'
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear stt strout

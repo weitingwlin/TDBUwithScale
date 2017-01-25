@@ -1,6 +1,15 @@
-% remake the plot so R_TD is positive for Top-down effects
-%% load 
- load TDBUfullperm
+
+clear; clc
+work_setup % reload the path
+%  load sim_scen1_Gillespie
+load sim_scen1_Gillespie
+%% Permutation setting
+sh=10000; % time of permutation
+%%
+tic
+TDBUsim = TDBU_bootstrap_logreg(simA, simL, simD, sh, 1); % sample  with replacement
+toc
+save sim_scen1_Gillespie_perm
 %%
 figure
 subplot(2,1,1)
@@ -13,7 +22,7 @@ subplot(2,1,1)
          mytexts.title ='Effects of ladybeetles on aphids';
         mytexts.ylabel = 'R_T_D';
 %%%%%%%%%%%%%%
-myplot_CI((-1) * TDBUfull.real(1,:), (-1) * TDBUfull.ciTD, (-1) * TDBUfull.medTD, 4, mytexts, mystyle)
+myplot_CI((-1) * TDBUsim.real(1,:), (-1) * TDBUsim.ciTD, (-1) * TDBUsim.medTD, 4, mytexts, mystyle)
 
 %% 
  subplot(2,1,2)
@@ -23,5 +32,5 @@ myplot_CI((-1) * TDBUfull.real(1,:), (-1) * TDBUfull.ciTD, (-1) * TDBUfull.medTD
         mytexts.xlabel = 'Spatial Scale (number of plants)';
         mytexts.xmark = {'1','3','9','27'};
 %%%%%%%%%%%%%%
-myplot_CI(TDBUfull.real(2,:),TDBUfull.ciBU,TDBUfull.medBU,4,mytexts, mystyle)
+myplot_CI(TDBUsim.real(2,:),TDBUsim.ciBU,TDBUsim.medBU,4,mytexts, mystyle)
 %%%%%%%%%%%%%%
