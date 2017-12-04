@@ -11,7 +11,7 @@
 clear;clc
 %% load data
 load data/ladybugaphid2014
- %% Patch occupency rate
+ %% Patch occupency 
  AllSample = sum(~isnan(Amat14));
 occA = sum((Amat14>0),1)./AllSample;
   vmeanSE(occA)
@@ -24,9 +24,10 @@ occL = sum((LLmat14>0),1)./AllSample;
        
 %% "The individual level colonization ability"      
 %  Colonization rate per individual, adjusted by the fraction of number of empty patch
-    [msg, stroutAind] = vmeanSE(Adetail. perCapitaAdjTS)
-     [msg, stroutLind] = vmeanSE(Ldetail. perCapitaAdjTS)
-
+%    [msg, stroutAind] = vmeanSE(Adetail. perCapitaAdjTS)
+ %    [msg, stroutLind] = vmeanSE(Ldetail. perCapitaAdjTS)
+ %
+% commented out in revision 1
   %%  The net colonization rate (colonization event per empty patch)
     [msg, stroutAnet] = vmeanSE(Adetail. perPatchTS)
      [msg, stroutLnet] = vmeanSE(Ldetail. perPatchTS)

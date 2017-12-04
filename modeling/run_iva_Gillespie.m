@@ -8,7 +8,7 @@ clc
     tlim = 100;        
     trec = 10;
     ts = tlim-trec +1: tlim; % time sampled
-    it = 100;
+    it = 100;    
 
 %%
 simA = []; simL = []; simD =[];

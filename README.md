@@ -24,3 +24,8 @@ The script to analyze data. since model and experimental data are to be analyzed
 > * 2015/10/19 : remove dependency on Euclidean_D
 > * 2016/06/09 : add field data analysis, rename folders
 
+### scripts to publish
+
+
+script_compile.m
+work_CI)TDBU_logreg.m

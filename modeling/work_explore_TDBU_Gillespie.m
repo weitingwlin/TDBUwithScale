@@ -43,9 +43,9 @@ else
 end
 %% Some basic data to compare with model
 % mean occupency rate
-A = mean(sum(sim_A>0));
-B = mean(sum(sim_L>0));
-C = mean(mean(sim_A(sim_A>0)));
+A = mean(sum(simA>0));
+B = mean(sum(simL>0));
+C = mean(mean(simA(sim_A>0)));
 disp(['occupency of aphids ', num2str(A)])
 disp(['occupency of ladybugs ', num2str(B)])
 disp(['mean population of aphids ', num2str(C)])
@@ -59,27 +59,36 @@ toc
 %% Making figure (using myplot_CI)
 figure
 subplot(5,1,[1 2])
-        mytexts=[];
-          mytexts.title ='Top-Down effects';
+       mytexts = [];
+        mystyle = [];
+        mystyle.limcolor =mycolor(4,'gray'); 
+        mystyle.midcolor = mycolor(1);% = mycolor(2,:);
+        mystyle.midsize = 6 ;
+         mytexts.title ='Effects of ladybeetles on aphids';
+        mytexts.ylabel = 'R_T_D';
 %%%%%%%%%%%%%%
-myplot_CI(TDBUsim.real(1,:), TDBUsim.ciTD, TDBUsim.medTD,4,mytexts)
+myplot_CI((-1) * TDBUsim.real(1,:), (-1) * TDBUsim.ciTD, (-1) * TDBUsim.medTD, 4, mytexts, mystyle)
+
 %%%%%%%%%%%%%%
-subplot(5,1,[3 4])
-        mytexts=[];
-        mytexts.title ='Bottom-Up effects';
+subplot(5, 1, [3 4])
+mytexts=[];
+        mytexts.title ='Effects of aphids on ladybeetles';
+        mytexts.ylabel = 'R_B_U';
+        mytexts.xmark = {'1','3','9','27'};
 %%%%%%%%%%%%%%
-myplot_CI(TDBUsim.real(2,:),TDBUsim.ciBU,TDBUsim.medBU,4,mytexts)
+myplot_CI(TDBUsim.real(2,:),TDBUsim.ciBU,TDBUsim.medBU,4,mytexts, mystyle)
 %%%%%%%%%%%%%%
 subplot(5, 1, 5)
 script_Gillespie_parameters
-text(0.1,1, ['cP = ' num2str(cP)  ';        dPz = ' num2str(dPz) ';      dP + dPz = ' num2str( dP + dPz)] )
-text(0.1,0.7, ['aP = ' num2str(aP) ';     eP = ' num2str(eP)])
-text(0.1, 0.3, ['BDofP = ' num2str(withBDofP)] )
+text(0.1,1, ['cP = ' num2str(cP)  ';        dPz = ' num2str(dPz) ';      dP + dPz = ' num2str( dP + dPz)  ' H_thP = ' num2str(H_thP )] );
+text(0.1,0.7, ['aP = ' num2str(aP) ';     eP = ' num2str(eP) ';   exitp = ' num2str(exitP) '   B = ' num2str(B)])
+text(0.1, 0.3, ['BDofP = ' num2str(withBDofP) ' ;   t = ' num2str(ts(1)) ' ~ ' num2str(ts(10))] )
+text(0.1, 0, note)
 %text(0.1, 0, ['initial = ' num2str(ittInit) ';    sh = ' num2str(sh)] )
 axis off
 box off
 
-
+%print('C:\Users\Wei-Ting\Desktop\test2', '-dpng')
 %%
 figure
 subplot(3,1,1)

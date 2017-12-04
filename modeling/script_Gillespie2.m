@@ -1,10 +1,8 @@
-%%
-load D_mat2
-% XY is the coordinate of the location of 81 plants
-% global  gH eP aP mH mP stoc_mH stoc_mP dH dP sH sP H_thH H_thP KH dHz dPz H_0 DispH DispP B withBDofP
-
-%% papameter setting
-%withBDofP = 0;
+%% Load habitat structure
+    XY = load('XY.txt'); % the X-Y locations of each plant
+    % to visualize the array:
+    %               plot(XY(:,1), XY(:,2), 'g.'); 
+%% Papameters setting
 exitP = 0; % the rate of dispersing out of the system
 gH = 0.2;  %0.2 The intrinsic growth rate of herbivore
 eP = 3;% 3;      consumption rate of herbivore by predator

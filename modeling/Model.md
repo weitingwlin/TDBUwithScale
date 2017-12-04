@@ -48,3 +48,4 @@
   +  = 0.1
 * B : smoothness of the dispersal threshhold function
   + = 0.25 
+

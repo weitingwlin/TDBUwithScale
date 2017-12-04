@@ -6,8 +6,8 @@ sh=10000; %  'sh' for shuffleing
 
 %% Permutation
 tic
-TDBUfull = TDBU_bootstrap_logreg(aphid, ladybug, dayID, sh, 1); % sample  with replacement
+TDBUfull = TDBU_bootstrap_logreg_slope(aphid, ladybug, dayID, sh, 1); % sample  with replacement
 toc
 
 %%
-% save TDBUfullperm_logreg TDBUfull sh
+ save TDBUfullperm_logreg_slope TDBUfull sh
