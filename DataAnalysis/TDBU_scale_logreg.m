@@ -42,19 +42,24 @@ for d = 1:nd-1
         t = t+1;
     end
 end
+%% remove double zero
+keep1 = any([MA_A_1(:), MA_L_1(:)], 2);
+keep3 = any([MA_A_3(:), MA_L_3(:)], 2);
+keep9= any([MA_A_9(:), MA_L_9(:)], 2);
+keep27 = any([MA_A_27(:), MA_L_27(:)], 2);
 
 %%
 BU=zeros(1,4);
-[temp, m, b] = regression(MA_A_1(:)', DF_L_1(:)');        BU(1,1)=temp;
-[temp, m, b] = regression(MA_A_3(:)', DF_L_3(:)');       BU(1,2)=temp;
-[temp, m, b] = regression(MA_A_9(:)', DF_L_9(:)');       BU(1,3)=temp;
-[temp, m, b] = regression(MA_A_27(:)', DF_L_27(:)');   BU(1,4)=temp;
+[temp, m, b] = regression(MA_A_1(keep1)', DF_L_1(keep1)');        BU(1,1)=temp;
+[temp, m, b] = regression(MA_A_3(keep3)', DF_L_3(keep3)');       BU(1,2)=temp;
+[temp, m, b] = regression(MA_A_9(keep9)', DF_L_9(keep9)');       BU(1,3)=temp;
+[temp, m, b] = regression(MA_A_27(keep27)', DF_L_27(keep27)');   BU(1,4)=temp;
 
 TD=zeros(1,4);
-[temp, m, b] = regression(MA_L_1(:)', DF_A_1(:)' );         TD(1,1)=temp;
-[temp, m, b] = regression(MA_L_3(:)', DF_A_3(:)');         TD(1,2)=temp;
-[temp, m, b] = regression(MA_L_9(:)', DF_A_9(:)');         TD(1,3)=temp;
-[temp, m, b] = regression(MA_L_27(:)', DF_A_27(:)');     TD(1,4)=temp;
+[temp, m, b] = regression(MA_L_1(keep1)', DF_A_1(keep1)' );         TD(1,1)=temp;
+[temp, m, b] = regression(MA_L_3(keep3)', DF_A_3(keep3)');         TD(1,2)=temp;
+[temp, m, b] = regression(MA_L_9(keep9)', DF_A_9(keep9)');         TD(1,3)=temp;
+[temp, m, b] = regression(MA_L_27(keep27)', DF_A_27(keep27)');     TD(1,4)=temp;
 out= [TD;BU];
 %% out : [TD_1 TD_3 TD_9 TD_27]
 %             [BU_1 BU_3 BU_9 BU_27]

@@ -4,9 +4,9 @@ function [L3, L9, L27, A3, A9, A27] = TDBU_scale_TS(data_A, data_L, Day)
 
 nd=length(Day); % number of days, D 
 % preparing output data sheet
-L3=zeros(27,nd);   A_3=zeros(27,nd);
-L9=zeros(9,nd);     A_9=zeros(9,nd);
-L27=zeros(3,nd);   A_27=zeros(3,nd);
+L3=zeros(27,nd);   A3=zeros(27,nd);
+L9=zeros(9,nd);     A9=zeros(9,nd);
+L27=zeros(3,nd);   A27=zeros(3,nd);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 3-plant TS
 for i=0:26

@@ -1,0 +1,27 @@
+MODEL : with B,D of P? = 1 
+
+NOTE : 20-Feb-2016
+
+smaller simulation with BD of P 
+
+
+ * Parameters:
+
+	DisperEvent = 3 
+
+	gH = 0.2 	 eP = 1.5 	 H_0 = 30 	 aP = 0.1 	 KH = 200
+
+	mH = 0.1 	 mP = 0.05 	 stoc_mH = 2 	 stoc_mP = 2
+
+	dH = 0.05 	 dP = 0.6 	 dHz = 0.05 	 dPz = 0.3
+
+	H_thH = 100 	 H_thP = 15 	 cH = 0.1 	 cP = 0.2
+
+	sH = 1 	 sP = 20 
+
+ * Simulation settings:
+
+	Seed = 123
+	Itteration : 
+		 Random initial : 10 
+		 Simulation time : 100
