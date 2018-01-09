@@ -1,5 +1,5 @@
 %% Load habitat structure
-    XY = load('XY.txt'); % the X-Y locations of each plant
+    XY = load('data/XY.txt'); % the X-Y locations of each plant
     % to visualize the array:
     %               plot(XY(:,1), XY(:,2), 'g.'); 
 %% Papameters setting

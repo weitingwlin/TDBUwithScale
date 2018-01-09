@@ -28,10 +28,11 @@ The file in this repo require [my matlab utility](https://github.com/wildwolflin
  
  	
 * **D\_mat2.mat**:
-  The (x,y) cordinate for 81 simulated patches. 
+  The (x,y) coordinate for 81 simulated patches. 
 
 * **/data** :
   The folder for simulated data and their log (note and parameters printed in text file)
 
 
-
+## models
+run\_Gillespie3.m: model including a scenario where predator exit system.(also change total simulation time from 100 to 20)
