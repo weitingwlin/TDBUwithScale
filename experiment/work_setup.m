@@ -5,7 +5,7 @@
 
 
 %%% set working directory and path
-if strncmp(strout, 'weitingdeAir',12)
+if strncmp(strout, 'weitingde',8)
     cd '/Users/weitinglin/Dropbox/PhD_projects/TDBU/experiment'
     addpath '/Users/weitinglin/Dropbox/DataCoding/utility_wtl/mfiles'
     addpath '/Users/weitinglin/Dropbox/PhD_projects/TDBU/DataAnalysis'
