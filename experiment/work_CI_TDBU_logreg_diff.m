@@ -13,6 +13,8 @@ toc
 % save TDBUfullperm_logreg TDBUfull sh
 TDBU_plot(TDBUfull)
 %%
+TDBU_diff_plot(TDBUfull)
+%% may be replaced by the line above
 figure
 subplot(3,1,1)
         mytexts = [];
