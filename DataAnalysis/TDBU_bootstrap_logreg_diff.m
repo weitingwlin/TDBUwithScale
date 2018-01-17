@@ -21,7 +21,7 @@ realBUdiff = zeros(1, 6);
 %%% Do simulation
 
 parfor t=1:itt
-    % create permutated data: permutation was done for each time step
+    % create permutated data: permutation was done ones, for all rows
     sh_data_A = datasample(dataA, 81, 1, 'replace', replacement); % shuffle the patch(plant) ID of the data 
     sh_data_L = datasample(dataL, 81, 1,'replace', replacement);
     output = TDBU_scale_logreg(sh_data_A,sh_data_L,Day); % calculate TD, BU indices

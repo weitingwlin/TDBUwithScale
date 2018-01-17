@@ -1,7 +1,7 @@
 % trim to remove decline in ladybug population
 L81 = sum(ladybug); % total ladybeetle population
 D_in = ones(D, 1); % who should stay
-thresh = 3;
+thresh = 2;
 decline = diff(L81)<0; % 
 for i =1: D-3 % for each interval d~d+1
       frame =  decline(i: i+thresh-1); % a frame of three intervals
@@ -24,12 +24,14 @@ TDBU1 =   TDBU_bootstrap_logreg_diff(aphid1, ladybug1, dayID1,sh,1);
 toc
 %%
 figure
-mysubplot(6,1, 0, {'Remove days ladybeetles declined', '> 3 consecutive days'})
+mysubplot(6,1, 0, {'Remove days where ladybeetles <3'})
 TDBU_plot(TDBU1)
 figure
-mysubplot(6,1, 0, {'Remove days ladybeetles declined', '> 3 consecutive days'})
+mysubplot(6,1, 0, {'Remove days where ladybeetles <3'})
+%mysubplot(6,1, 0, {'Remove days ladybeetles declined', '> 3 consecutive days'})
 TDBU_diff_plot(TDBU1)
 %%
 figure
-mysubplot(3,1, 0, {'Remove days ladybeetles declined', '> 3 consecutive days'})
+%mysubplot(6,1, 0, {'Remove days where ladybeetles <3'})
+mysubplot(3,1, 0, {'Remove days ladybeetles declined', '> 2 consecutive days'})
 [~,~,~] = TDBU_trend_plot(aphid1, ladybug1, dayID1);

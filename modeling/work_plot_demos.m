@@ -1,6 +1,6 @@
 %% make plot for elements in the model like dispersal kernel, can be used in presentation
 clear;clc
-script_Gillespie_parameters
+script_Gillespie3_parameters
 %% plot dispersal incidence
 figure
         distX = 0: 0.5: 80; % example of distance between patches

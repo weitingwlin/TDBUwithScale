@@ -15,7 +15,7 @@ subplot(8,1, 3:6)
     gap = setdiff(1:max(simDay), simDay);
     realgap = gap([2, diff(gap)]~=1); % "2" is the spaceholder for the first element
     for j=1:length(realgap)
-        myplot([realgap(j) realgap(j)],ylim,'L', 7)
+        myplot([realgap(j) realgap(j)],ylim,'L', 7);
         
     end 
     
